@@ -1,7 +1,10 @@
+from datetime import time
+
 from behave import *
 
 @given(u'que eu tenha acessado o comércio online "{url}"')
 def step_impl(context, url):
+    context.driver.get(url)
     context.PesquisaAdicionaCarrinhoCompra.acessar_pagina_url(context, url)
 
 
@@ -15,9 +18,9 @@ def step_impl(context):
     context.PesquisaAdicionaCarrinhoCompra.aciona_btn_busca_produto()
 
 
-@then(u'o sistema deve apresentar uma lista de resultados com produtos que correspondem ao informado na busca')
+@then(u'o sistema deve apresentar uma lista de resultados com "iphone"(s) que correspondem ao informado na busca')
 def step_impl(context):
-
+    assert True
 
 
 @given(u'realizado a busca de um produto existente')
